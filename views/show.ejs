@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scribble</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .bg-cream {
+      background: linear-gradient(135deg,
+        #FFF6CC 0%,
+        #E6E6FA 30%,
+        #FFD6E0 60%,
+        #D4F1F4 100%
+      );
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .text-shadow {
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+
+<body class="bg-cream min-h-screen flex items-center justify-center px-6">
+
+  <div class="max-w-3xl m-10 w-full glass  rounded-[3rem] p-12 shadow-2xl">
+
+    <!-- Back -->
+    <a href="/" class="text-sm text-gray-600 hover:text-gray-900 transition mb-6 inline-block">
+      ← Back to tasks
+    </a>
+    <% 
+  const displayName = filename
+    .replace(/\.txt$/, '')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+%>
+
+
+    <!-- Title -->
+    <h1 class="text-5xl font-extrabold text-gray-800 mb-6 text-shadow">
+      <%= displayName %>
+    </h1>
+
+   
+    <!-- Description -->
+    <div class="bg-white/70 rounded-2xl p-6 shadow-inner">
+      <p class="text-xl text-gray-700 leading-relaxed whitespace-pre-line">
+        <%= description %>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+</html>
