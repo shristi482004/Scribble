@@ -54,27 +54,27 @@ This project helped me bridge the gap between:
 ## Project Structure
 
 scribble/
-├── app.js                  # Main Express server and routes
-├── package.json            # Project metadata and dependencies
+├── app.js                     # Main Express server and routes
+├── package.json               # Project metadata and dependencies
 ├── package-lock.json
-├── README.md               # Project documentation
+├── README.md                  # Project documentation
 │
-├── files/                  # File-based storage for notes
+├── files/                     # File-based storage for notes
 │   ├── my_first_note.txt
 │   ├── backend_basics.txt
 │   └── sample_note.txt
 │
-├── views/                  # EJS templates
-│   ├── index.ejs           # Home page (list of all notes)
-│   ├── show.ejs            # Full note view page
-│   └── edit.ejs            # Edit / rename note page
+├── views/                     # EJS templates
+│   ├── index.ejs              # Home page (list of all notes)
+│   ├── show.ejs               # Full note view page
+│   └── edit.ejs               # Edit / rename note page
 │
-├── public/                 # Static assets
-│   ├── css/                # Custom styles (if added later)
-│   ├── js/                 # Client-side scripts
-│   └── images/             # Screenshots and assets
+├── public/                    # Static assets
+│   ├── css/                   # Custom styles (optional)
+│   ├── js/                    # Client-side scripts
+│   └── images/                # Screenshots and assets
 │
-└── node_modules/           # Installed dependencies
+└── node_modules/              # Installed dependencies
 
 
 
@@ -130,15 +130,15 @@ This separation ensures backend reliability while maintaining a clean and user-f
 
 ## How to Run the Project Locally
 
-1. Clone the repository:
+1. Clone the repository
 
-2. Navigate into the project directory:
+2. Navigate into the project directory
 
-3. Install dependencies:
+3. Install dependencies
 
-4. Start the server:
+4. Start the server
 
-5. Open your browser and visit:
+5. Open your browser and visit
 
 ---
 
