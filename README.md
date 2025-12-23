@@ -110,3 +110,69 @@ scribble/
 ---
 
 
+## Filename Strategy
+
+To avoid filesystem and URL issues:
+- Backend filenames are stored in a safe format:
+- Frontend converts them into readable titles:
+
+This separation ensures backend reliability while maintaining a clean and user-friendly frontend experience.
+
+---
+
+## How to Run the Project Locally
+
+1. Clone the repository:
+
+2. Navigate into the project directory:
+
+3. Install dependencies:
+
+4. Start the server:
+
+5. Open your browser and visit:
+
+---
+
+## Problems Faced and What I Learned
+
+### Understanding Request Flow
+Initially, I struggled to understand where data comes from in a backend application, especially the difference between URL parameters, request body data, and form inputs. This project helped me clearly differentiate when to use `req.params` versus `req.body`.
+
+### File Handling Errors
+I encountered multiple issues while renaming and deleting files due to unsafe filenames, incorrect paths, and disabled form inputs not being sent to the backend. These challenges taught me the importance of consistent file paths, defensive coding, and proper error handling.
+
+### EJS Rendering Errors
+Small mistakes such as using undefined variables or unsupported JavaScript syntax inside EJS caused rendering failures. This helped me understand how EJS compiles templates and why separating logic from presentation is important.
+
+### Page Reload vs Dynamic Updates
+Initially, deleting a note caused a full page reload. By learning to intercept events and use the Fetch API, I was able to improve the user experience and understand the concept of progressive enhancement.
+
+---
+
+## Personal Note
+
+This is my **first backend project**, and Scribble represents an important learning milestone for me. The aim was not to build a perfect or production-ready application, but to deeply understand backend fundamentals and how they integrate with frontend interfaces.
+
+I am continuously learning and improving, and this project will evolve as my understanding grows. Feedback, suggestions, and constructive criticism are always welcome.
+
+---
+
+## Future Improvements
+
+- Migrate from file-based storage to a database such as MongoDB  
+- Add confirmation modals for delete actions  
+- Add validation and duplicate name checks  
+- Improve error handling and user feedback  
+- Refactor the codebase into an MVC architecture  
+- Add authentication and user-specific notes  
+
+---
+
+## Conclusion
+
+Scribble is a small but meaningful step in my backend development journey. It demonstrates core backend concepts, thoughtful UI integration, and practical problem-solving.
+
+Thank you for taking the time to explore this project.
+
+
