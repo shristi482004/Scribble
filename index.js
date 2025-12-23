@@ -36,18 +36,21 @@ app.get('/files/:filename',(req,res)=>{
     })
    
 });
-app.get('/delete/:filename',(req,res)=>{
-    file.unlink(`./files/${req.params.filename}`, (err) => {
-    if (err) {
-        console.error('Error deleting file:', err);
-        return;
-    }
-    console.log('File deleted successfully!');
-    res.redirect('/');
+app.post('/delete/:filename', (req, res) => {
+  file.unlink(`./files/${req.params.filename}`, (err) => {
+    if (err) return res.status(500).send('Error deleting');
+    res.sendStatus(200);
+  });
 });
-    
+
+ app.get('/edit/:prevname', (req, res) => {
+    res.render('edit', {
+        prevname: req.params.prevname
+    });
+});
+
    
-});
+
 app.post('/edit/:prevname',(req,res)=>{
    
    file.rename(`./files/${req.body.prevname}`,`./files/${req.body.newName}`,(err)=>{

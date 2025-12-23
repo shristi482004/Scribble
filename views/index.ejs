@@ -229,9 +229,10 @@
     </svg>
   </a>
 
-  <a href="/delete/<%= val %>"
-       class="text-gray-400 hover:text-red-500 transition"
-       title="Delete task">
+ <a href="/delete/<%= val %>"
+   data-filename="<%= val %>"
+   class="delete-link text-gray-400 hover:text-red-500 transition"
+   title="Delete task">
       <svg xmlns="http://www.w3.org/2000/svg"
            viewBox="0 0 24 24"
            fill="none"
@@ -281,7 +282,31 @@
 
   </div>
 
+ <script>
+  document.addEventListener('click', async function (e) {
+    const deleteLink = e.target.closest('.delete-link');
+    if (!deleteLink) return;
+
+    e.preventDefault(); 
+
+    const filename = deleteLink.dataset.filename;
+    const card = deleteLink.closest('.tasks');
+
+    try {
+      await fetch(`/delete/${filename}`, { method: 'POST' });
+
   
+      card.style.transition = 'all 0.3s ease';
+      card.style.transform = 'scale(0.8)';
+      card.style.opacity = '0';
+
+      setTimeout(() => card.remove(), 300);
+    } catch (err) {
+      alert('Could not delete file');
+    }
+  });
+</script>
+ 
 
 </body>
 </html>
