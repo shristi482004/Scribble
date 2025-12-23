@@ -1,0 +1,23 @@
+{
+  "name": "scribble",
+  "version": "1.0.0",
+  "description": "A lightweight note-making application built with Node.js, Express, and EJS for quick and easy note management",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shristi482004/Scribble.git"
+  },
+  "author": "Shristi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shristi482004/Scribble/issues"
+  },
+  "homepage": "https://github.com/shristi482004/Scribble#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1"
+  }
+}

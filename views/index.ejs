@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scribble-The Task Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    @keyframes gradient-shift {
+      0%, 100% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    @keyframes fade-in-up {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 182, 193, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(255, 182, 193, 0.6);
+      }
+    }
+    
+   .bg-cream {
+  background: linear-gradient(135deg,
+    #FFF6CC 0%,     /* soft yellow */
+    #E6E6FA 25%,
+    #FFD6E0 50%,
+    #D4F1F4 75%,
+    #FFF6CC 100%   /* soft yellow */
+  );
+}
+.task-gradient-1 {
+  background: linear-gradient(135deg, #FFE8A3 0%, #D4F1F4 100%);
+}
+
+.task-gradient-2 {
+  background: linear-gradient(135deg, #FFF1B8 0%, #C9E4F8 100%);
+}
+
+.task-gradient-3 {
+  background: linear-gradient(135deg, #FFF6CC 0%, #E6E6FA 100%);
+}
+
+.task-gradient-4 {
+  background: linear-gradient(135deg, #FFEFCF 0%, #FFD6E0 100%);
+}
+
+.tasks {
+  position: relative;
+}
+
+.tasks::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 235, 153, 0.45),
+    rgba(255, 255, 255, 0)
+  );
+  opacity: 0.7;
+  z-index: -1;
+  filter: blur(18px);
+}
+
+
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-fade-in-up {
+      animation: fade-in-up 0.6s ease-out forwards;
+    }
+    
+    .animate-pulse-glow {
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    
+    
+    
+    input:focus, textarea:focus {
+      transform: scale(1.01);
+    }
+    
+    .tasks:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+    
+    .text-shadow-black {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="main w-full min-h-screen bg-cream">
+    
+    <!-- Floating Header -->
+    <div class="text-center pt-16 pb-8 ">
+      <h1 class="text-7xl font-extrabold text-white drop-shadow-lg mb-3 " style="text-shadow: 3px 3px 6px rgba(0,0,0,0.2);">
+        Scribble
+      </h1>
+      <p class="text-2xl text-white font-medium drop-shadow">A place for all your thoughts</p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form p-10 text-black max-w-4xl mx-auto animate-fade-in-up" style="animation-delay: 0.2s;">
+      <div class="glass-effect rounded-[3rem] p-12 shadow-2xl animate-pulse-glow">
+        <form action="/create" method="post" id="taskForm">
+          <input 
+            name="taskTitle"
+            class="block px-8 py-6 w-full rounded-3xl bg-white/60 backdrop-blur-sm
+                   border-2 border-white/80 text-gray-800 text-xl
+                   placeholder-gray-500 font-medium shadow-lg
+                   focus:outline-none focus:border-pink-300 focus:shadow-2xl
+                   transition-all duration-300" 
+            type="text" 
+            placeholder=" Task Title"
+          >
+          
+          <textarea 
+            name="taskDescription"
+            class="block px-8 py-6 rounded-3xl mt-5 w-full resize-none bg-white/60 backdrop-blur-sm
+                   border-2 border-white/80 text-gray-800 text-xl
+                   placeholder-gray-500 font-medium shadow-lg
+                   focus:outline-none focus:border-pink-300 focus:shadow-2xl
+                   transition-all duration-300" 
+            rows="4"
+            placeholder="Write description"
+          ></textarea>
+          
+          <input 
+            type="submit" 
+            value="Create Task" 
+            class="bg-gradient-to-r from-red-400 to-purple-400 
+                   text-white mt-8 px-10 py-5 rounded-3xl text-xl font-bold
+                   shadow-2xl cursor-pointer w-full
+                   hover:scale-105 hover:shadow-pink-300/50
+                   active:scale-95 transition-all duration-300"
+          >
+        </form>
+      </div>
+    </div>
+
+    <!-- Tasks Section -->
+
+
+
+    <div class="tasks-container p-10">
+      <div id="taskGrid" class="flex gap-8 flex-wrap justify-center max-w-7xl mx-auto">
+
+        <% if(files.length>0) { %>
+          <% files.forEach(function(val) { %>
+            <div class="tasks m-w-72 px-6 py-8 task-gradient-1 rounded-[2rem] shadow-2xl
+                    transition-all duration-500 hover:shadow-pink-300/50 animate-fade-in-up"
+             style="animation-delay: 0.3s;">
+          <div class="flex justify-between items-start mb-4">
+            <div class="w-3 h-3 bg-pink-400 rounded-full animate-pulse"></div>
+            <button class="delete-btn text-gray-700 hover:text-red-500 transition-colors opacity-0 hover:opacity-100">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <h1 class="text-shadow-black text-3xl tracking-tighter font-bold text-gray-800 mb-4 leading-tight 
+           flex items-center justify-between gap-4">
+
+  <!-- Task name -->
+  <span class="flex-1">
+    <%= val %>
+  </span>
+
+  <!-- Action icons -->
+  <span class="flex items-center gap-3">
+<a href="/edit/<%= val %>"
+     class="text-pink-400 hover:text-pink-500 transition">
+    <svg xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="currentColor"
+         stroke-width="1.8"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         class="w-5 h-5">
+      <path d="M12 20h9"/>
+      <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>
+    </svg>
+  </a>
+
+  <a href="/delete/<%= val %>"
+       class="text-gray-400 hover:text-red-500 transition"
+       title="Delete task">
+      <svg xmlns="http://www.w3.org/2000/svg"
+           viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="1.8"
+           stroke-linecap="round"
+           stroke-linejoin="round"
+           class="w-5 h-5">
+        <polyline points="3 6 5 6 21 6"/>
+        <path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/>
+        <path d="M10 11v6"/>
+        <path d="M14 11v6"/>
+        <path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+      </svg>
+    </a>
+     </span>
+          </h1>
+          <a href="/files/<%= val %>" class="text-zinc-800 inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all">
+            Read More <span class="text-xl">→</span>
+            
+          </a>
+        </div>
+          <% }) %>
+          
+       <% } else { %>
+         <div id="emptyState" class="text-center mt-16 ">
+        <div class="glass-effect rounded-[3rem] p-16 max-w-2xl mx-auto shadow-2xl animate-fade-in-up">
+          <div class="text-8xl mb-6 animate-float"></div>
+          <h3 class="text-3xl font-bold text-gray-700 mb-3">No Tasks Yet.</h3>
+          <p class="text-xl text-gray-600">Create your first beautiful task above!</p>
+        </div>
+      </div>
+        <% } %>
+       
+        
+        
+
+        
+       
+        
+        
+      </div>
+      
+   
+      
+    </div>
+
+  </div>
+
+  
+
+</body>
+</html>
