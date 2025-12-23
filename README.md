@@ -54,20 +54,28 @@ This project helped me bridge the gap between:
 ## Project Structure
 
 scribble/
+├── app.js                  # Main Express server and routes
+├── package.json            # Project metadata and dependencies
+├── package-lock.json
+├── README.md               # Project documentation
 │
-├── files/               # Stores all note files (.txt)
+├── files/                  # File-based storage for notes
+│   ├── my_first_note.txt
+│   ├── backend_basics.txt
+│   └── sample_note.txt
 │
-├── views/
-│   ├── index.ejs        # Home page (list of notes)
-│   ├── show.ejs         # Full note view
-│   ├── edit.ejs         # Rename note page
+├── views/                  # EJS templates
+│   ├── index.ejs           # Home page (list of all notes)
+│   ├── show.ejs            # Full note view page
+│   └── edit.ejs            # Edit / rename note page
 │
-├── public/              # Static assets (if any)
+├── public/                 # Static assets
+│   ├── css/                # Custom styles (if added later)
+│   ├── js/                 # Client-side scripts
+│   └── images/             # Screenshots and assets
 │
-├── app.js               # Main Express server
-│
-├── package.json
-└── README.md
+└── node_modules/           # Installed dependencies
+
 
 
 ---
