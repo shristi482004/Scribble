@@ -53,28 +53,8 @@ This project helped me bridge the gap between:
 
 ## Project Structure
 
-scribble/
-├── app.js                     # Main Express server and routes
-├── package.json               # Project metadata and dependencies
-├── package-lock.json
-├── README.md                  # Project documentation
-│
-├── files/                     # File-based storage for notes
-│   ├── my_first_note.txt
-│   ├── backend_basics.txt
-│   └── sample_note.txt
-│
-├── views/                     # EJS templates
-│   ├── index.ejs              # Home page (list of all notes)
-│   ├── show.ejs               # Full note view page
-│   └── edit.ejs               # Edit / rename note page
-│
-├── public/                    # Static assets
-│   ├── css/                   # Custom styles (optional)
-│   ├── js/                    # Client-side scripts
-│   └── images/                # Screenshots and assets
-│
-└── node_modules/              # Installed dependencies
+<img width="1118" height="944" alt="image" src="https://github.com/user-attachments/assets/e1774838-1f96-4105-a1d5-cd37f555c1f1" />
+
 
 
 
@@ -116,6 +96,27 @@ scribble/
 - The card is removed from the DOM smoothly without reloading the page.
 
 ---
+## Screenshots
+
+### Home Page – Create & View Notes
+<img width="2047" height="1056" alt="image" src="https://github.com/user-attachments/assets/c5008c21-69e6-4e7d-85c9-554509f51a3b" />
+
+
+### Edit Task Name Page
+<img width="2047" height="1160" alt="image" src="https://github.com/user-attachments/assets/1b9d168f-06fc-4020-8b2f-7966e4b37821" />
+
+
+### Full Note View Page
+<img width="2047" height="1160" alt="image" src="https://github.com/user-attachments/assets/6c68dcc7-b7c4-4877-aa14-6d3a5adf8803" />
+
+### Note Card with Edit & Delete Actions
+<img width="2940" height="1666" alt="image" src="https://github.com/user-attachments/assets/9354221c-60ee-4db6-90fb-93d4404cf9ec" />
+
+
+
+### Empty State
+<img width="2047" height="1160" alt="image" src="https://github.com/user-attachments/assets/334fe010-c75a-4a29-af6f-d0cebf47eb3c" />
+
 
 
 ## Filename Strategy
