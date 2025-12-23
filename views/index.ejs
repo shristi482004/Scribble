@@ -193,6 +193,13 @@
 
         <% if(files.length>0) { %>
           <% files.forEach(function(val) { %>
+            <% 
+  const displayName = val
+    .replace(/\.txt$/, '')
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+%>
+
             <div class="tasks m-w-72 px-6 py-8 task-gradient-1 rounded-[2rem] shadow-2xl
                     transition-all duration-500 hover:shadow-pink-300/50 animate-fade-in-up"
              style="animation-delay: 0.3s;">
@@ -209,7 +216,8 @@
 
   <!-- Task name -->
   <span class="flex-1">
-    <%= val %>
+    <%= displayName %>
+
   </span>
 
   <!-- Action icons -->

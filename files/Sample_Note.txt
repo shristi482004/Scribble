@@ -1,0 +1,23 @@
+Scribble is a simple and beautiful note-making space designed to help you capture thoughts, ideas, and tasks without distraction. Whether you’re planning your day, jotting down random ideas, or organizing your studies, Scribble keeps everything clean, calm, and easy to manage.
+
+How to use Scribble:
+
+1.Start by entering a title for your note at the top.
+
+2.Write anything you want in the description box — tasks, thoughts, reminders, or reflections.
+
+3.Click Create Task to save your note.
+
+4.Your notes will appear below as soft pastel cards.
+
+5.Click Read More to view the full note.
+
+6.Use the pencil icon  to rename a note.
+
+7.Use the dustbin icon to delete notes you no longer need.
+
+
+A personal note:
+This is my first backend project, and Scribble is a learning journey as much as it is a tool. I’m continuously improving it as I learn more about backend development, better architecture, and user experience. If you have suggestions, feedback, or ideas on how this can be improved, feel free to leave comments or reach out — I’d genuinely love to learn and make this better.
+
+Write freely. Organize gently. Learn constantly.

@@ -19,7 +19,7 @@ app.get('/',(req,res)=>{
 });
 
 app.post('/create',(req,res)=>{
-    file.writeFile(`files/${req.body.taskTitle.split(' ').join('')}.txt`,req.body.taskDescription,(err)=>{
+    file.writeFile(`files/${req.body.taskTitle.split(' ').join('_')}.txt`,req.body.taskDescription,(err)=>{
         if(err){
             return res.status(500).send("Error creating file");
         }
@@ -51,9 +51,9 @@ app.post('/delete/:filename', (req, res) => {
 
    
 
-app.post('/edit/:prevname',(req,res)=>{
+/*app.post('/edit/:prevname',(req,res)=>{
    
-   file.rename(`./files/${req.body.prevname}`,`./files/${req.body.newName}`,(err)=>{
+   file.rename(`./files/${req.body.prevname}`,`files/${req.body.newName.split(' ').join('_')}.txt`,(err)=>{
         if(err){
             return res.status(500).send("Error reading file");
         }
@@ -63,6 +63,31 @@ app.post('/edit/:prevname',(req,res)=>{
     });
    
 });
+*/
+app.post('/edit/:prevname', (req, res) => {
+  const oldName = req.params.prevname; 
+  const newName = req.body.newName;
+
+  if (!newName) {
+    return res.redirect('/');
+  }
+
+  const safeNewName =
+    newName.trim().split(' ').join('_') + '.txt';
+
+  file.rename(
+    `./files/${oldName}`,
+    `./files/${safeNewName}`,
+    (err) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).send("Error renaming file");
+      }
+      res.redirect('/');
+    }
+  );
+});
+
 app.use((err,req,res,next)=>{
     console.error(err.stack);
     res.status(500).send('Something broke!');
