@@ -6,6 +6,7 @@ Scribble is a simple, aesthetic, and backend-powered note-making web application
 
 This application was built as my **first backend project**, with the goal of understanding how a frontend communicates with a backend, how data is persisted, and how server-side rendering works using templating engines.
 
+
 ---
 
 ## Motivation
